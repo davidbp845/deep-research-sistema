@@ -107,3 +107,7 @@ Si el motor añade un comando nuevo, crea su symlink en `.claude/commands/` (o v
 ## Contribuir
 
 Este repo es genérico: nada de un negocio, persona o investigación concretos. Si cambias una regla de [`convenciones.md`](convenciones.md), cambia también `scripts/validar.py`, las plantillas y los comandos afectados. Las reglas para Claude Code están en [`CLAUDE.md`](CLAUDE.md).
+
+## Licencia
+
+[MIT](LICENSE).
