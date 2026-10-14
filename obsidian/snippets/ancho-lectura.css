@@ -1,0 +1,68 @@
+/*
+ * Ancho de lectura: texto a 65 caracteres; tablas y bloques de código a todo el ancho del panel
+ * (los bloques de código empiezan alineados con el texto y crecen hacia la derecha).
+ * Solo actúa con "Longitud de línea legible" activada (Ajustes → Editor).
+ * Ajusta el ancho del texto cambiando --ancho-texto.
+ */
+body {
+  --ancho-texto: 65ch;
+}
+
+/* Edición (vista previa en vivo y código fuente) */
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-content {
+  max-width: none;
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer > .inline-title,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer > .metadata-container,
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line {
+  max-width: var(--ancho-texto);
+  margin-inline: auto;
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-table-widget .cm-line {
+  max-width: none;
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-table-widget {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto !important;
+}
+
+/* Bloques de código en edición: cada línea es un .cm-line con clase HyperMD-codeblock */
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line.HyperMD-codeblock {
+  max-width: none;
+  margin-inline-start: max(0px, calc((100% - var(--ancho-texto)) / 2));
+  margin-inline-end: 0;
+}
+
+/* Lectura */
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+  max-width: none;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer > div:not(.el-table):not(.el-pre) {
+  max-width: var(--ancho-texto);
+  margin-inline: auto;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer > .el-table {
+  overflow-x: auto;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer > .el-table > table {
+  margin-inline: auto;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer > .el-pre {
+  max-width: none;
+  margin-inline-start: max(0px, calc((100% - var(--ancho-texto)) / 2));
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer > .el-pre > pre {
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
